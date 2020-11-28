@@ -20,8 +20,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 
 
-public class Main extends Application {
+public class Main2 extends Application {
 	
+	
+	//main2로 바꿈
 	public static ExecutorService threadPool; //여러개의 쓰레드를 관리하는 라이브러리
 	public static Vector<Client> clients = new Vector<Client>();
 	

@@ -30,7 +30,7 @@ public class Client {
 								+ socket.getRemoteSocketAddress()
 								+ ": " +Thread.currentThread().getName());
 						String message = new String(buffer, 0, length, "UTF-8");
-						for(Client client : Main.clients ) {
+						for(Client client : Main2.clients ) {
 							client.send(message);
 						}
 					}
@@ -47,7 +47,7 @@ public class Client {
 				
 			}
 		};
-		Main.threadPool.submit(thread);
+		Main2.threadPool.submit(thread);
 	}
 	
 	//클라이언트에게 메시지를 전송하는 메소드
@@ -66,7 +66,7 @@ public class Client {
 						System.out.println("[메시지 송신 오류]"
 								+ socket.getRemoteSocketAddress()
 								+ ": " + Thread.currentThread().getName());
-						Main.clients.remove(Client.this);
+						Main2.clients.remove(Client.this);
 						socket.close();
 					}catch(Exception e2) {
 						e2.printStackTrace();			
@@ -75,6 +75,6 @@ public class Client {
 				
 			}
 		}; 
-		Main.threadPool.submit(thread);
+		Main2.threadPool.submit(thread);
 	}
 }
